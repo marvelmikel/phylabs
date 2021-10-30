@@ -7,7 +7,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-   <title>Dashboard - Yeti Admin</title> 
+   <title>Lab - Phylabs</title> 
   
 
     <!-- Generics -->
