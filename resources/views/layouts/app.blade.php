@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="{{asset('assets/images/favicon/favicon-167.png')}}" sizes="167x167">
     <link rel="apple-touch-icon" href="{{asset('assets/images/favicon/favicon-180.png')}}" sizes="180x180">
 
-  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
+  <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}" />
 </head>
 
 <body>
