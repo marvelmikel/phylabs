@@ -15,8 +15,8 @@ class CreateElementParametersTable extends Migration
     {
         Schema::create('element_parameters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('energy_level_id')
-            $table->unsignedBigInteger('element_id')
+            $table->unsignedBigInteger('energy_level_id');
+            $table->unsignedBigInteger('element_id');
             $table->double('coherent_scaterring_xcs')->nullable();
             $table->double('incoherent_scaterring_xcs')->nullable();
             $table->double('photoelectric_absorption_xcs')->nullable();
