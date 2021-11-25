@@ -2,20 +2,20 @@
   @section('content')
     <section class="container flex">
                 <!--Left Col-->
-                <div class="w-1/2">
+                <div class="pl-10 lg:w-1/2">
                     <p class="uppercase tracking-loose w-full mt-10">A simple, robust and reliable tool to calculate</p>
                     <h1 class="my-4 lg:text-3xl text-2xl font-bold leading-tight">
                         CROSS SECTION AND ATENUATION COEFFICIENTS OF ELEMENTS, COMPOUNDS AND MIXTURES
                     </h1>
                     <p class="leading-normal  tracking-loose mb-8">
-                        All stored values are updated regualarly based on latest emperica results
+                        All stored values are updated regualarly based on latest emperical results
                     </p>
                     <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                         Get Started
                     </button>
                 </div>
                 <!--Right Col-->
-                <div class="w-1/2 py-6 text-center">
+                <div class="lg:w-1/2 py-6 text-center">
                     <img class="w-full  z-50" src="{{ asset('assets/images/hero3.png')  }}">
                 </div>
 
