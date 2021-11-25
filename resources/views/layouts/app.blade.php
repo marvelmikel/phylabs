@@ -37,17 +37,8 @@
     <!-- Workspace  -->
     <main class="workspace overflow-hidden">
 
-        <!-- Breadcrumb -->
-        <section class="breadcrumb">
-            <h1>Dashboard</h1>
-            <ul>
-                <li><a href="#">Login</a></li>
-                <li class="divider la la-arrow-right"></li>
-                <li>Dashboard</li>
-            </ul>
-        </section>
 
-        <div class="lg:flex lg:-mx-4">
+        <div class="lg:-mx-4">
             @yield('content')
         </div>
 
@@ -60,6 +51,8 @@
     <script src="{{asset('assets/js/Chart.min.js')}}"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
     <script src="{{asset('assets/js/script.js')}}"></script>
+
+    @stack('js')
 
 </body>
 

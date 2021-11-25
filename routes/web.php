@@ -20,3 +20,10 @@ if (App::environment('production')) {
 Route::get('/', function () {
     return view('index');
 });
+
+
+Route::group(['prefix' => 'neutronxcs'], function(){
+	Route::get('/', function(){
+		return view('modules.neutrons.index');
+	})->name('neutronxcs.index');
+});

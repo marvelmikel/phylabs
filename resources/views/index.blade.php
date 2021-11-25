@@ -1,161 +1,26 @@
 @extends('layouts.app')
   @section('content')
-  <div class="lg:w-1/2 lg:px-4">
-    <!-- Summaries -->
-    <div class="lg:flex lg:-mx-4">
-        <div class="lg:w-1/3 lg:px-4">
-            <div
-                class="card px-4 py-8 text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
-                <span class="text-primary text-5xl leading-none la la-sun"></span>
-                <p class="mt-2">Published Posts</p>
-                <div class="text-primary mt-5 text-3xl leading-none">18</div>
-            </div>
-        </div>
-        <div class="lg:w-1/3 lg:px-4 pt-5 lg:pt-0">
-            <div
-                class="card px-4 py-8 text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
-                <span class="text-primary text-5xl leading-none la la-cloud"></span>
-                <p class="mt-2">Pending Posts</p>
-                <div class="text-primary mt-5 text-3xl leading-none">16</div>
-            </div>
-        </div>
-        <div class="lg:w-1/3 lg:px-4 pt-5 lg:pt-0">
-            <div
-                class="card px-4 py-8 text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
-                <span class="text-primary text-5xl leading-none la la-layer-group"></span>
-                <p class="mt-2">Categories</p>
-                <div class="text-primary mt-5 text-3xl leading-none">9</div>
-            </div>
-        </div>
-    </div>
+    <section class="container flex">
+                <!--Left Col-->
+                <div class="w-2/5">
+                    <p class="uppercase tracking-loose w-full mt-10">A simple, robust and reliable tool to calculate</p>
+                    <h1 class="my-4 lg:text-5xl text-2xl font-bold leading-tight">
+                        CROSS SECTION AND ATENUATION COEFFICIENTS OF ELEMENTS, COMPOUNDS AND MIXTURES
+                    </h1>
+                    <p class="leading-normal  tracking-loose mb-8">
+                        All stored values are updated regualarly based on latest emperica results
+                    </p>
+                    <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                        Get Started
+                    </button>
+                </div>
+                <!--Right Col-->
+                <div class="w-3/5 py-6 text-center">
+                    <img class="w-full md:w-4/5 z-50" src="{{ asset('assets/images/hero.png')  }}">
+                </div>
 
-    <!-- Visitors -->
-    <div class="card mt-5 p-5">
-        <h3>Visitors</h3>
-        <div class="mt-5">
-            <canvas id="visitorsChart"></canvas>
-        </div>
-    </div>
-
-    <!-- Categories -->
-    <div class="card mt-5 p-5">
-        <h3>Categories</h3>
-        <div class="mt-5">
-            <canvas id="categoriesChart"></canvas>
-        </div>
-    </div>
-  </div>
-  <div class="lg:w-1/2 lg:px-4 pt-5 lg:pt-0">
-
-      <!-- Lines -->
-      <div class="card p-5">
-          <div class="flex flex-wrap -mx-4">
-              <div class="w-1/2 lg:w-1/4 px-4">
-                  <h4 class="chart-value text-primary"></h4>
-                  <small class="chart-label"></small>
-                  <canvas id="lineWithAnnotationChart1"></canvas>
-              </div>
-              <div class="w-1/2 lg:w-1/4 px-4">
-                  <h4 class="chart-value text-primary"></h4>
-                  <small class="chart-label"></small>
-                  <canvas id="lineWithAnnotationChart2"></canvas>
-              </div>
-              <div class="w-1/2 lg:w-1/4 px-4 mt-5 sm:mt-0">
-                  <h4 class="chart-value text-primary"></h4>
-                  <small class="chart-label"></small>
-                  <canvas id="lineWithAnnotationChart3"></canvas>
-              </div>
-              <div class="w-1/2 lg:w-1/4 px-4 mt-5 sm:mt-0">
-                  <h4 class="chart-value text-primary"></h4>
-                  <small class="chart-label"></small>
-                  <canvas id="lineWithAnnotationChart4"></canvas>
-              </div>
-          </div>
-      </div>
-
-      <!-- Recent Posts  -->
-      <div class="card mt-5 p-5">
-          <h3>Recent Posts</h3>
-          <table class="table mt-3 w-full">
-              <thead>
-                  <tr>
-                      <th class="text-left uppercase">Title</th>
-                      <th class="uppercase">Views</th>
-                      <th class="uppercase">Pulbished</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                      <td class="text-center">100</td>
-                      <td class="text-center">
-                          <div class="badge badge_outlined badge_secondary uppercase">Draft</div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>Donec tempor lacus quis ex ullamcorper, ut cursus dui pellentesque.</td>
-                      <td class="text-center">150</td>
-                      <td class="text-center">
-                          <div class="badge badge_outlined badge_success uppercase">Published</div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>Quisque molestie velit sed elit finibus, nec gravida nunc finibus.</td>
-                      <td class="text-center">300</td>
-                      <td class="text-center">
-                          <div class="badge badge_outlined badge_warning uppercase">Pending</div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>Morbi nec nisl ac libero facilisis finibus vitae fringilla dolor.</td>
-                      <td class="text-center">120</td>
-                      <td class="text-center">
-                          <div class="badge badge_outlined badge_success uppercase">Published</div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>Donec suscipit libero in nibh fringilla hendrerit.</td>
-                      <td class="text-center">180</td>
-                      <td class="text-center">
-                          <div class="badge badge_outlined badge_secondary uppercase">Draft</div>
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
-          <a href="#" class="btn btn_primary mt-5">Show all Posts</a>
-      </div>
-
-      <!-- Quick Post -->
-      <div class="card mt-5 p-5">
-          <h3>Quick Post</h3>
-          <div class="mt-5">
-              <form>
-                  <div class="mb-5">
-                      <label class="label block mb-2" for="title">Title</label>
-                      <input type="text" class="form-control" id="title">
-                  </div>
-                  <div class="mb-5">
-                      <label class="label block mb-2" for="content">Content</label>
-                      <textarea class="form-control" id="content" rows="4"></textarea>
-                  </div>
-                  <div class="mb-5">
-                      <label class="label block mb-2" for="category">Category</label>
-                      <div class="custom-select">
-                          <select class="form-control">
-                              <option>Select</option>
-                              <option>Option</option>
-                          </select>
-                          <div class="select-icon la la-caret-down"></div>
-                      </div>
-                  </div>
-                  <div class="mt-10">
-                      <button class="btn btn_primary mr-2 uppercase">Publish</button>
-                  </div>
-              </form>
-              </form>
-          </div>
-      </div>
-  </div>
+    </section>
+  
         
   @endSection
   @push('js')
@@ -185,5 +50,44 @@
             });
           });
     </script>
+
+    <script type="text/javascript">
+        // const regex = /([\w*-′]*([\[(]([\[(]?[a-zA-Zα-ωΑ-Ωµ\-′,:]+\d?[+-]?[\])]?)+[\])\d+-]{1,})[\w*-′]*)|(([A-z]+[a-z]*\d)+([A-z]+[a-z]*\d?)*)/g;
+
+        // const regex = /([A-Z][a-z]?)(\d*)/ 
+        const regex = /([A-Z][a-z]*)(\d*)/g;
+
+        const str = `HOCH2CH2`; // Cu(NO3)2 + H2O - H12"
+        let m;
+
+        // while ((m = regex.exec(str)) !== null) {
+        //     // This is necessary to avoid infinite loops with zero-width matches
+        //     if (m.index === regex.lastIndex) {
+        //         regex.lastIndex++;
+        //     }
+            
+        //     // The result can be accessed through the `m`-variable.
+        //     // m.forEach((match, groupIndex) => {
+        //     //     console.log(`Found match, group ${groupIndex}: ${match}`);
+
+        //     // });
+        //     console.log(m)
+        // }
+        // for(e in m = regex.exec(str)){
+        //   console.log(m[e])
+        // }
+
+        // m = regex.exec(str)
+        // console.log(m)
+
+        var userArray=  str.match(/(?:[A-Z][a-z]*|\d+|[()])/g); //(8) ['H', 'O', 'C', 'H', '2', 'C', 'H', '2']
+
+
+        let  composition = str.match(/([A-Z][a-z]*)(\d*)/g); //(6) ['H', 'O', 'C', 'H2', 'C', 'H2']
+
+        console.log(userArray)
+    </script>
+
+    <script type="text/javascript"></script>
   @endPush
 
