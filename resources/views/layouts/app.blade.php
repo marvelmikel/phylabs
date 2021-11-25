@@ -24,6 +24,8 @@
     <link rel="apple-touch-icon" href="{{asset('assets/images/favicon/favicon-180.png')}}" sizes="180x180">
 
   <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+
 </head>
 
 <body>

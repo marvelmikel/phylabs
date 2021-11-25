@@ -2,9 +2,9 @@
   @section('content')
     <section class="container flex">
                 <!--Left Col-->
-                <div class="w-2/5">
+                <div class="w-1/2">
                     <p class="uppercase tracking-loose w-full mt-10">A simple, robust and reliable tool to calculate</p>
-                    <h1 class="my-4 lg:text-5xl text-2xl font-bold leading-tight">
+                    <h1 class="my-4 lg:text-3xl text-2xl font-bold leading-tight">
                         CROSS SECTION AND ATENUATION COEFFICIENTS OF ELEMENTS, COMPOUNDS AND MIXTURES
                     </h1>
                     <p class="leading-normal  tracking-loose mb-8">
@@ -15,8 +15,8 @@
                     </button>
                 </div>
                 <!--Right Col-->
-                <div class="w-3/5 py-6 text-center">
-                    <img class="w-full  z-50" src="{{ asset('assets/images/hero1.png')  }}">
+                <div class="w-1/2 py-6 text-center">
+                    <img class="w-full  z-50" src="{{ asset('assets/images/hero3.png')  }}">
                 </div>
 
     </section>
