@@ -34,10 +34,10 @@
 
    <!-- popular compounds -->
    <section class="mt-10">
-            <div class="lg:w-1 lg:px-4 pt-5 lg:pt-0">
+            <div class="lg:w-full lg:px-4 pt-5 lg:pt-0">
                 <div class="card p-5">
                     <div class="w-full  justify-between">
-                       <h3>Popular</h3>  <span></span>
+                       <h3 class="text-2xl" >Popular</h3>  <span></span>
                     </div>
                     <table class="table table_striped mt-3 w-full">
                         <thead>
@@ -46,7 +46,7 @@
                                 <th class="text-left uppercase">Name</th>
                                 <th class="text-left uppercase">Composition</th>
                                 <th class="text-left uppercase">Density</th>
-                                <th class="text-left uppercase">Total: S{R}</th>
+                                <th class="text-left uppercase">Total: Σ(R/P)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -87,22 +87,22 @@
 
    <!-- recent calculations -->
    <section class="mt-10">
-            <div class="lg:w-1 lg:px-4 pt-5 lg:pt-0">
+            <div class="lg:w-full lg:px-4 pt-5 lg:pt-0">
                
 
                 <div class="card p-5">
                     <div class="w-full  justify-between">
-                       <h3>Recent</h3>  <span>Fast Neutrons Effective Removal Cross Section for 5.5% Burated Polyethylene </span>
+                       <h3 class="text-2xl">Recent</h3>  <span>Fast Neutrons Effective Removal Cross Section for 5.5% Burated Polyethylene </span>
                     </div>
                     <table class="table table_striped mt-3 w-full">
                         <thead>
                             <tr>
                                 <th class="text-left uppercase">#</th>
                                 <th class="text-left uppercase">Element</th>
-                                <th class="text-left uppercase">{R/p</th>
+                                <th class="text-left uppercase">ΣR/p</th>
                                 <th class="text-left uppercase">Fraction by wieght</th>
                                 <th class="text-left uppercase">Partial Density</th>
-                                <th class="text-left uppercase">S{R}</th>
+                                <th class="text-left uppercase">Σ{R}</th>
                             </tr>
                         </thead>
                         <tbody>
