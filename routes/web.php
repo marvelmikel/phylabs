@@ -19,7 +19,11 @@ if (App::environment('production')) {
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('pages.index');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('pages.about');
 
 
 Route::group(['prefix' => 'neutronxcs'], function(){

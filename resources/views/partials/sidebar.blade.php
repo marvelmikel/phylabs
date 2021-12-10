@@ -17,7 +17,7 @@
         <a href="#" target="_blank" class="link" data-toggle="tooltip-menu"
             data-tippy-content="Docs"><span class="icon la la-book-open"></span><span class="title">Periodic Table</span></a>
 
-         <a href="#" class="link" data-toggle="tooltip-menu" data-tippy-content="Dashboard"><span
+         <a href="{{ route('pages.about') }}" class="link" data-toggle="tooltip-menu" data-tippy-content="Dashboard"><span
                 class="icon la la-laptop"></span><span class="title">About</span></a>
         
 

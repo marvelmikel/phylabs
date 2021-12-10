@@ -1,6 +1,6 @@
 @extends('layouts.app')
   @section('content')
-    <section class="container flex">
+    <section class="container flex flex-wrap">
                 <!--Left Col-->
                 <div class="pl-10 lg:w-1/2">
                     <p class="uppercase tracking-loose w-full mt-10">A simple, robust and reliable tool to calculate</p>
@@ -24,7 +24,7 @@
         
   @endSection
   @push('js')
-    <script type="text/javascript">
+   <!--  <script type="text/javascript">
           $(document).ready(function() {
             $("#add").click(function() {
               var lastField = $("#buildyourform div:last");
@@ -50,7 +50,9 @@
             });
           });
     </script>
-
+ -->
+    
+  <!--  
     <script type="text/javascript">
         // const regex = /([\w*-′]*([\[(]([\[(]?[a-zA-Zα-ωΑ-Ωµ\-′,:]+\d?[+-]?[\])]?)+[\])\d+-]{1,})[\w*-′]*)|(([A-z]+[a-z]*\d)+([A-z]+[a-z]*\d?)*)/g;
 
@@ -89,5 +91,7 @@
     </script>
 
     <script type="text/javascript"></script>
+
+  -->
   @endPush
 
