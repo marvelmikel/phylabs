@@ -39,13 +39,14 @@
                         <div class="flex flex-wrap justify-center">
                             <div class="w-full lg:w-9/12 px-4">
                                 <p class="mb-4 lg:text-xl text-lg  leading-relaxed text-blueGray-700">
-                                  The program describes the evaluation of Photon, Neutron (fast and thermal) and Charged Particles (electron, proton, and alpha particles) cross section in materials. chemical compounds and mixtures.
+                                  PHYLABS is the first program which is developed to perform the calculation of all parameters relevant to dosimetry and protection against all the types of radiations such as Photons (X-rays and gamma rays), Neutrons (fast and thermal neutrons) and Charged Particles (electrons, protons, and alpha particles). This program can be used as a comprehensive tool to study the radiation shielding ability of materials, compounds and mixtures. Moreover, PHYLABS program is very useful platform for who are interested in radiation protection, radiotherapy, dosimetry, and for several purposes whether this is in the nuclear or medical facilities.
+
                                 </p>
-                                <p  class="mb-4 lg:text-xl text-lg leading-relaxed text-blueGray-700">
-                                  This project is financially funded by Abdulguder Mohammed Saleh Al-Baidhani.
+                                <p  class=" lg:text-xl text-lg leading-relaxed text-blueGray-700">
+                                  <em>This project is financially funded by Abdulguder Mohammed Saleh Al-Baidhani.</em>
                                 </p>
-                                <p  class="mb-4 lg:text-xl text-lg leading-relaxed text-blueGray-700">
-                                Many Thanks to his continous effort to support the Science
+                                <p  class="mb-2 lg:text-xl text-lg leading-relaxed text-blueGray-700">
+                                    <i>Many thanks to his continous effort to support the Science.</i>
                                 </p>
                                 <div class="mt-20">
                                   <!-- <a href="#pablo" class="font-normal text-primary">Send Feedback</a> -->
