@@ -3,10 +3,15 @@
     <section class="container flex flex-wrap">
                 <!--Left Col-->
                 <div class="pl-10 lg:w-1/2">
-                    <p class="uppercase tracking-loose w-full mt-10">A simple, robust and reliable tool to calculate</p>
-                    <h1 class="my-4 lg:text-3xl text-2xl font-bold leading-tight">
-                        CROSS SECTION AND ATENUATION COEFFICIENTS OF ELEMENTS, COMPOUNDS AND MIXTURES
+                    <p class="uppercase tracking-loose w-full mt-10"></p>
+                    <h1 class="my-4 lg:text-3xl text-2xl uppercase font-bold leading-tight">
+                       A simple and comprehensive tool to calculate
                     </h1>
+                    <p class="mb-4 lg:text-4xl text-2xl text-left  leading-relaxed text-blueGray-700">
+                        the parameters relevant to dosimetry and protection against all the types of radiations such as Photons (X-rays and gamma rays), Neutrons (fast and thermal neutrons) and Charged Particles (electrons, protons, and alpha particles).
+
+                      </p>
+
                     <p class="leading-normal  tracking-loose mb-8">
                         All stored values are updated regualarly based on latest emperical results
                     </p>
