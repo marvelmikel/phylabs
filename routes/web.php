@@ -30,4 +30,8 @@ Route::group(['prefix' => 'neutronxcs'], function(){
 	Route::get('/', function(){
 		return view('modules.neutrons.index');
 	})->name('neutronxcs.index');
+
+	Route::get('/fastneutron', function(){
+		return view('modules.neutrons.fast');
+	})->name('neutronxcs.fast');
 });

@@ -5,12 +5,13 @@
       <!-- Actions -->
       <div class="lg:flex w-full lg:-mx-4">
           <div class="lg:w-1/3 lg:px-4">
-              <div
-                  class="card px-4 py-8 text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
+              <a
+                  href="{{ route('neutronxcs.fast') }}"
+                  class="card block px-4 py-8 text-center cursor-pointer lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200" >
                   <span class="text-primary text-5xl leading-none la la-sun"></span>
                   <p class="mt-2">FAST NEUTRON</p>
                   <div class="text-primary mt-5 text-xl leading-none">CLICK HERE</div>
-              </div>
+              </a>
           </div>
           <div class="lg:w-1/3 lg:px-4 pt-5 lg:pt-0">
               <div
@@ -147,70 +148,5 @@
         
   @endSection
   @push('js')
-    <script type="text/javascript">
-          $(document).ready(function() {
-            $("#add").click(function() {
-              var lastField = $("#buildyourform div:last");
-              var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
-              var fieldWrapper = $("<div class=\"form-group row\" id=\"field" + intId + "\"/>");
-              fieldWrapper.data("idx", intId);
-
-              var element = $('<div class="col-lg-4"><div class="st-form-field st-style1"><input type="text" id="uemail" name="uemail" placeholder="element 1" required></div></div>')
-
-              var val1 = $('<div class="col-lg-4"><div class="st-form-field st-style1"><input type="text" id="unumber" name="unumber" placeholder="val1" required></div>')
-
-              var val2 = $(' <div class="col-lg-4"><div class="st-form-field st-style1"><input type="text" id="unumber" name="unumber" placeholder="val2" required></div>')
-
-              var removeButton = $('<i class="fa fa-minus remove"></i>');
-              removeButton.click(function() {
-                  $(this).parent().remove();
-              });
-              fieldWrapper.append(element);
-              fieldWrapper.append(val1);
-              fieldWrapper.append(val2);
-              fieldWrapper.append(removeButton);
-              $("#buildyourform").append(fieldWrapper);
-            });
-          });
-    </script>
-
-    <script type="text/javascript">
-        // const regex = /([\w*-′]*([\[(]([\[(]?[a-zA-Zα-ωΑ-Ωµ\-′,:]+\d?[+-]?[\])]?)+[\])\d+-]{1,})[\w*-′]*)|(([A-z]+[a-z]*\d)+([A-z]+[a-z]*\d?)*)/g;
-
-        // const regex = /([A-Z][a-z]?)(\d*)/ 
-        const regex = /([A-Z][a-z]*)(\d*)/g;
-
-        const str = `HOCH2CH2`; // Cu(NO3)2 + H2O - H12"
-        let m;
-
-        // while ((m = regex.exec(str)) !== null) {
-        //     // This is necessary to avoid infinite loops with zero-width matches
-        //     if (m.index === regex.lastIndex) {
-        //         regex.lastIndex++;
-        //     }
-            
-        //     // The result can be accessed through the `m`-variable.
-        //     // m.forEach((match, groupIndex) => {
-        //     //     console.log(`Found match, group ${groupIndex}: ${match}`);
-
-        //     // });
-        //     console.log(m)
-        // }
-        // for(e in m = regex.exec(str)){
-        //   console.log(m[e])
-        // }
-
-        // m = regex.exec(str)
-        // console.log(m)
-
-        var userArray=  str.match(/(?:[A-Z][a-z]*|\d+|[()])/g); //(8) ['H', 'O', 'C', 'H', '2', 'C', 'H', '2']
-
-
-        let  composition = str.match(/([A-Z][a-z]*)(\d*)/g); //(6) ['H', 'O', 'C', 'H2', 'C', 'H2']
-
-        console.log(userArray)
-    </script>
-
-    <script type="text/javascript"></script>
   @endPush
 
