@@ -18,7 +18,9 @@ class CreateElementsTable extends Migration
             $table->string('name');
             $table->string('symbol')->unique();
             $table->unsignedBigInteger('atomic_number');
-            $table->unsignedBigInteger('atomic_wieght');
+            $table->unsignedBigInteger('atomic_weight');
+            $table->unsignedBigInteger('density');
+            
             $table->timestamps();
         });
     }

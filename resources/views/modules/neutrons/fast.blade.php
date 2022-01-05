@@ -11,13 +11,14 @@
             <div class="lg:w-full lg:px-4 pt-5 lg:pt-0">
                 <div class="card p-5 ">
                     <div class=" px-4 pt-4 pb-0 mt-3 mb-3">
-                        <h3 class="uppercase text-xl mb-2">fast Neutron Cross Section</h3>
+                        <h3 id="heading">Neutron Cross Section</h3>
                         <p>Provide chemical formular</p>
-                        <form id="msform" name="student-signup-msform">
+                        <form id="msform" action="{{route('store')}}" name="student-signup-msform">
+                    
                             <!-- progressbar -->
                             <ul id="progressbar">
                                 <li id="formular" class="active"><strong>Formular</strong></li>
-                                <li id="energy"><strong>Parameters</strong></li>
+                                <!-- <li id="energy"><strong>Parameters</strong></li> -->
                                 <li id="calculations"><strong>Calculations</strong></li>
                                  <li id="account"><strong>Terms</strong></li>
                                 <li id="confirm"><strong>Results</strong></li>
@@ -31,7 +32,7 @@
                             <fieldset>
                                 <div class="form-card">
                                     <label class="fieldlabels">Enter Compound Formular: *</label>
-                                    <input type="text" id="formularInput" onchange="processFormular(event)" name="formular" placeholder="Eg: H2O+Cu(NO3)2 + H2O - H12" />
+                                    <input type="text" id="formularInput" onchange="processFormular(event)" name="formular" placeholder="Eg: H2O+Cu(NO3)2 + H2O - H12" required=""/>
                                 </div>
                                 <pre id="resultHolder" class="h-20">
                                   
@@ -41,13 +42,13 @@
                             </fieldset>
 
                             <!-- Energy -->
-                            <fieldset>
+                            <!-- <fieldset>
                                 <div class="form-card">
                                     
                                 </div>
                                 <input type="button" name="next" class="next action-button" value="Next" /> 
-                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                            </fieldset>
+                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
+                            </fieldset> -->
 
                             <!-- Calculations -->
                             <fieldset>
@@ -55,7 +56,7 @@
                                     
                                 </div>
                                 <input type="button" name="next" class="next action-button" value="Next" />
-                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
                             </fieldset>
 
                              <!-- Account -->
@@ -79,8 +80,8 @@
                                     </div>
                                 </div> 
                                 <input type="button" name="next" class="next action-button" value="Next" />
-                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                            </fieldset> -->
+                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
+                            </fieldset> 
 
 
                             <!-- Terms -->
@@ -115,7 +116,7 @@
                                     </div>
 
                                     <div class="">
-                                        <input class="form-check-input" type="checkbox" name="terms" style="width: 60px" value="accepted" id="terms"> 
+                                        <input class="form-check-input" type="checkbox" name="terms" style="width: 60px" value="accepted" id="terms" required=""> 
                                         <label class="form-check-label" style="margin-left:30px" for="flexCheckDefault">
                                            I have read and accept Lnaid Terms
                                         </label>
@@ -124,10 +125,11 @@
                                 </div>
 
                                 <!-- <div id="ajaxLoading" style="position: relative; top: 60px"> -->
-                                    <img id="ajaxLoading" src="{{asset('assets/images/spinners/preloader.gif')}} " title="working..." />
+                                    <!-- <img id="ajaxLoading" src="{{asset('assets/images/spinners/preloader.gif')}} " title="working..." /> -->
                                 <!-- </div> -->
-                                <input type="button" id="submit" name="next" class="action-button" value="Submit" />
-                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                <button type="submit" class="action-button"  value="Submit">SUBMIT</button>
+                                <!-- <input type="button" id="submit" name="next" class="action-button" value="Submit" /> -->
+                                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
                             </fieldset>
 
                         </form>

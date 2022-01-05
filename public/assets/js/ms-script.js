@@ -156,9 +156,11 @@ $(document).ready(function(){
 			});
 
 			$.ajax({
-				url: window.location.origin + '/signup-student',
+				url: window.location.origin + '/fastneutron/check',
 				method: 'POST',
 				data: formValues,
+				dataType: "json",
+				encode: true,
 
 				beforeSend: function() {
 				    $('#ajaxLoading').show();

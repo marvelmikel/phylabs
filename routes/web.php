@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Controllers\ElementController;
+use App\Http\Controllers\ElementParameterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,11 +28,19 @@ Route::get('/about', function () {
 
 
 Route::group(['prefix' => 'neutronxcs'], function(){
-	Route::get('/', function(){
-		return view('modules.neutrons.index');
-	})->name('neutronxcs.index');
 
-	Route::get('/fastneutron', function(){
-		return view('modules.neutrons.fast');
-	})->name('neutronxcs.fast');
+Route::get('/' ,[ElementController::class, 'index'])->name('neutronxcs.index');
+Route::get('/fastneutron' ,[ElementController::class, 'fastneutron'])->name('neutronxcs.fast');
+Route::any('/fastneutron/table' ,[ElementController::class, 'faststore'])->name('store');
+Route::get('/fastneutron/table' ,[ElementController::class, 'calculation'])->name('neutronxcs.table');
+
 });
+
+
+//Route::get('/test' ,[ElementController::class, 'test'])->name('welcome');
+
+// TEST CODES
+// Route::get('/wel' ,[ElementController::class, 'form'])->name('welcome');
+//  Route::post('/wel' ,[ElementController::class, 'form'])->name('welcome');
+
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
