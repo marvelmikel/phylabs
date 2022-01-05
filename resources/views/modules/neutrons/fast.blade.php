@@ -11,7 +11,7 @@
             <div class="lg:w-full lg:px-4 pt-5 lg:pt-0">
                 <div class="card p-5 ">
                     <div class=" px-4 pt-4 pb-0 mt-3 mb-3">
-                        <h3 id="heading">Neutron Cross Section</h3>
+                        <h3 class="uppercase text-xl mb-2">fast Neutron Cross Section</h3>
                         <p>Provide chemical formular</p>
                         <form id="msform" name="student-signup-msform">
                             <!-- progressbar -->
