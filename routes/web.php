@@ -1,5 +1,7 @@
 <?php
 use App\Http\Controllers\ElementController;
+use App\Http\Controllers\NeutronXCSController;
+
 use App\Http\Controllers\ElementParameterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
@@ -32,26 +34,30 @@ Route::get('/about', function () {
 
 Route::group(['prefix' => 'neutronxcs'], function(){
 
-Route::get('/' ,[ElementController::class, 'index'])->name('neutronxcs.index');
-Route::get('/fastneutron' ,[ElementController::class, 'fastneutron'])->name('neutronxcs.fast');
+Route::get('/' ,[NeutronXCSController::class, 'index'])->name('neutronxcs.index');
+
+Route::get('/fastneutron', [NeutronXCSController::class, 'fastNeutonPage'])->name('neutronxcs.fast');
+Route::post('/fastneutron', [NeutronXCSController::class, 'calcFastNeutronxcs'])->name('neutronxcs.fast.calc');
+
+
 Route::any('/fastneutron/table' ,[ElementController::class, 'faststore'])->name('store');
 Route::get('/fastneutron/table' ,[ElementController::class, 'calculation'])->name('neutronxcs.table');
 
 });
 
 
-Route::get('/test' , function(){
+// Route::get('/test' , function(){
 	
-        $elements = Http::get('https://neelpatel05.pythonanywhere.com/')->json();
-        $array = [];
+//         $elements = Http::get('https://neelpatel05.pythonanywhere.com/')->json();
+//         $array = [];
 
-      	foreach ($elements as $key => $element) {
-      		 array_push(  $array, json_decode(json_encode($element), true) );
-      	}
+//       	foreach ($elements as $key => $element) {
+//       		 array_push(  $array, json_decode(json_encode($element), true) );
+//       	}
 
         
-        return ($array);
-})->name('welcome');
+//         return ($array);
+// })->name('welcome');
 
 // TEST CODES
 // Route::get('/wel' ,[ElementController::class, 'form'])->name('welcome');

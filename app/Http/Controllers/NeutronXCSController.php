@@ -2,84 +2,73 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EnergyLevel;
 use Illuminate\Http\Request;
+use App\Traits\FormularTrait;
+use App\Models\Element;
+
 
 class NeutronXCSController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
-        //
+        return view('modules.neutrons.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function fastNeutonPage()
     {
-        //
+        return view('modules.neutrons.fast');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function thermalNeutronPage()
     {
-        //
+        return view('modules.neutrons.fast');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\EnergyLevel  $energyLevel
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EnergyLevel $energyLevel)
+   
+    public function calcFastNeutronxcs(Request $request)
     {
-        //
+        $composition = FormularTrait::parseFormular('NaOH+H2O+Cl2');
+        
+        $massCompositions = FormularTrait::massComposition($composition);
+
+        $weightFractions = FormularTrait::weightFraction($massCompositions);
+        
+        $molarMass = FormularTrait::molarMass($composition);
+
+        $partialDensities = $this->calcPartialDensity($weightFractions);
+
+        $this->calcRemovalCrossSection($partialDensities);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\EnergyLevel  $energyLevel
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(EnergyLevel $energyLevel)
+    
+
+    public function calcRemovalCrossSection($partialDensities)
     {
-        //
+        $removalCrossSections = [];
+        foreach ($partialDensities as $element => $partialDensity) {
+            $ele = Element::where('symbol' , $element)->first();
+            if($ele){
+                dd($ele);
+            }
+           // array_push($removalCrossSections,  [$element => ($value/$massCompositions['total']) ] );
+        }
+
+        // dd(array_merge(...$weightFractions));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\EnergyLevel  $energyLevel
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, EnergyLevel $energyLevel)
+    public static function calcPartialDensity($weightFractions, $density = 3.6)
     {
-        //
-    }
+        $calcPartialDensities = [];
+        foreach ($weightFractions as $element => $weightFraction) {
+           array_push($calcPartialDensities,  [$element => ($weightFraction * $density ) ] );
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\EnergyLevel  $energyLevel
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(EnergyLevel $energyLevel)
-    {
-        //
+       return (array_merge(...$calcPartialDensities));
     }
 }

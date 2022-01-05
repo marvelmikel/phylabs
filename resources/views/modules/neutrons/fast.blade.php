@@ -13,18 +13,20 @@
                     <div class=" px-4 pt-4 pb-0 mt-3 mb-3">
                         <h3 id="heading">Neutron Cross Section</h3>
                         <p>Provide chemical formular</p>
-                        <form id="msform" action="{{route('store')}}" name="student-signup-msform">
+                        <form id="msform" method="post" action="{{route('neutronxcs.fast.calc')}}" name="student-signup-msform">
+                        @csrf
                     
                             <!-- progressbar -->
                             <ul id="progressbar">
                                 <li id="formular" class="active"><strong>Formular</strong></li>
-                                <!-- <li id="energy"><strong>Parameters</strong></li> -->
-                                <li id="calculations"><strong>Calculations</strong></li>
+                                <li id="parameters"><strong>Parameters</strong></li>
+                                <!-- <li id="calculations"><strong>Calculations</strong></li> -->
                                  <li id="account"><strong>Terms</strong></li>
-                                <li id="confirm"><strong>Results</strong></li>
+                                <!-- <li id="confirm"><strong>Results</strong></li> -->
                             </ul>
+                            
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" ></div>
                             </div> <br> 
                             <!-- fieldsets -->
 
@@ -41,53 +43,22 @@
                                 <input type="button" name="next" class="next action-button" value="Next" />
                             </fieldset>
 
-                            <!-- Energy -->
-                            <!-- <fieldset>
+                            <!-- parameters -->
+                            <fieldset>
                                 <div class="form-card">
-                                    
+                                    <label class="fieldlabels">Enter Compound Density: *</label>
+                                    <input type="text" id="densityInput" name="density" placeholder="Density in g/cm3 " required=""/>
                                 </div>
                                 <input type="button" name="next" class="next action-button" value="Next" /> 
                                  <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
-                            </fieldset> -->
-
-                            <!-- Calculations -->
-                            <fieldset>
-                                <div class="form-card h-40">
-                                    
-                                </div>
-                                <input type="button" name="next" class="next action-button" value="Next" />
-                                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
                             </fieldset>
 
-                             <!-- Account -->
-<!--                             <fieldset>
-                                <div class="form-card">
-                                    <div class="input-group col-md-6">
-                                        <label class="fieldlabels">Email: *</label>
-                                        <input type="email" name="email" placeholder="Email" />
-                                    </div>
-                                    <div class="input-group col-md-6">
-                                        <label class="fieldlabels">Username: *</label>
-                                        <input type="text" name="username" placeholder="Username" />
-                                    </div>
-                                    <div class="input-group col-md-6">
-                                        <label class="fieldlabels">Password: *</label>
-                                        <input type="password" name="password" id="password" placeholder="Password" />
-                                    </div>
-                                    <div class="input-group col-md-6">
-                                        <label class="fieldlabels">Confirm Password: *</label>
-                                        <input type="password" name="confirm_password" placeholder="Confirm Password" />
-                                    </div>
-                                </div> 
-                                <input type="button" name="next" class="next action-button" value="Next" />
-                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
-                            </fieldset> 
 
 
                             <!-- Terms -->
                             <fieldset>
                                 <div class="form-card">
-                                    <div class="px-3 row justify-content-center" style="height: 150px; overflow-y: scroll;">
+                                    <div class="px-3 row justify-content-center" style="height: 250px; overflow-y: scroll;">
                                         <!-- <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div> -->
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -124,12 +95,22 @@
 
                                 </div>
 
-                                <!-- <div id="ajaxLoading" style="position: relative; top: 60px"> -->
-                                    <!-- <img id="ajaxLoading" src="{{asset('assets/images/spinners/preloader.gif')}} " title="working..." /> -->
-                                <!-- </div> -->
+                                <div id="ajaxLoading" style="position: relative; top: 60px">
+                                    <img id="ajaxLoading" src="{{asset('assets/images/spinners/preloader.gif')}} " title="working..." />
+                                </div>
                                 <button type="submit" class="action-button"  value="Submit">SUBMIT</button>
                                 <!-- <input type="button" id="submit" name="next" class="action-button" value="Submit" /> -->
-                                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                            </fieldset>
+
+
+                            <!-- result -->
+                            <fieldset>
+                                <div class="form-card">
+                                    
+                                </div>
+                                <input type="button" name="next" class="next action-button" value="Next" /> 
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
                             </fieldset>
 
                         </form>
