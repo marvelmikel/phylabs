@@ -17,13 +17,18 @@ class Element extends Model
      *
      * @var string[]
      */
-    protected $fillable = [
-        'name',
-        'symbol',
-        'atomic_number',
-        'atomic_weight',
-        'density',
-        'compound',
+    // protected $fillable = [
+    //     'name',
+    //     'symbol',
+    //     'atomic_number',
+    //     'atomic_weight',
+    //     'density',
+    //     'compound',
+    // ];
+
+
+    protected $guarded = [
+        'id'
     ];
 
 }

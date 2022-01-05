@@ -2,6 +2,9 @@
 use App\Http\Controllers\ElementController;
 use App\Http\Controllers\ElementParameterController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +40,23 @@ Route::get('/fastneutron/table' ,[ElementController::class, 'calculation'])->nam
 });
 
 
-//Route::get('/test' ,[ElementController::class, 'test'])->name('welcome');
+Route::get('/test' , function(){
+	
+        $elements = Http::get('https://neelpatel05.pythonanywhere.com/')->json();
+        $array = [];
+
+      	foreach ($elements as $key => $element) {
+      		 array_push(  $array, json_decode(json_encode($element), true) );
+      	}
+
+        
+        return ($array);
+})->name('welcome');
 
 // TEST CODES
 // Route::get('/wel' ,[ElementController::class, 'form'])->name('welcome');
 //  Route::post('/wel' ,[ElementController::class, 'form'])->name('welcome');
 
 //Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+

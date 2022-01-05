@@ -14,7 +14,6 @@ class CreateCompoundsTable extends Migration
     public function up()
     {
         Schema::create('compounds', function (Blueprint $table) {
-            $table->id();
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
