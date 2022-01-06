@@ -34,6 +34,9 @@ class NeutronXCSController extends Controller
     public function calcFastNeutronxcs(Request $request)
     {
         $formular= $request->formular;
+        $density= $request->density;
+
+
         $composition = FormularTrait::parseFormular($formular);
         
         $massCompositions = FormularTrait::massComposition($composition); //corect
@@ -43,24 +46,25 @@ class NeutronXCSController extends Controller
         $weightFractions = FormularTrait::weightFraction($massCompositions, $molarMass); //corect
         
 
-        $partialDensities = $this->calcPartialDensity($weightFractions);
+        $partialDensities = $this->calcPartialDensity($weightFractions, $density);
 
-        $massRemovalCrossSections = $this->calcRemovalCrossSection($weightFractions);
+        $massRemovalCrossSections = $this->calcRemovalCrossSection($weightFractions, $density);
 
         dd(
-            [ $formular, 'title' => 'formular'],
-            [ $composition, 'title' => 'composition'],
-            [ $massCompositions, 'title' => 'massCompositions'],
-            [ $molarMass, 'title' => 'molarMass'],
-            [ $weightFractions, 'title' => 'weightFractions'],
-            [ $partialDensities, 'title' => 'partialDensities'],
-            [ $massRemovalCrossSections, 'title' => 'massRemovalCrossSections']
+            [ 'title' => 'formular', $formular],
+            [ 'title' => 'density', $formular],
+            [ 'title' => 'composition', $composition],
+            [ 'title' => 'massCompositions', $massCompositions],
+            [ 'title' => 'molarMass', $molarMass],
+            [ 'title' => 'weightFractions', $weightFractions],
+            [ 'title' => 'partialDensities', $partialDensities],
+            [ 'title' => 'massRemovalCrossSections', $massRemovalCrossSections]
         );
     }
 
     
 
-    public function calcRemovalCrossSection($weightFractions, $density = 1)
+    public function calcRemovalCrossSection($weightFractions, $density)
     {
         // = wi (∑R)I   
 
@@ -81,7 +85,7 @@ class NeutronXCSController extends Controller
         return (array_merge(...$massRemovalCrossSections));
     }
 
-    public static function calcPartialDensity($weightFractions, $density = 1)
+    public static function calcPartialDensity($weightFractions, $density)
     {
         $calcPartialDensities = [];
         foreach ($weightFractions as $element => $weightFraction) {
