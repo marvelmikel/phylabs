@@ -44,7 +44,6 @@ class NeutronXCSController extends Controller
         $molarMass = FormularTrait::molarMass($composition); //corect
 
         $weightFractions = FormularTrait::weightFraction($massCompositions, $molarMass); //corect
-        
 
         $partialDensities = $this->calcPartialDensity($weightFractions, $density);
 
@@ -69,15 +68,15 @@ class NeutronXCSController extends Controller
 
         $massRemovalCrossSections = [];
         $total = 0;
-        foreach ($partialDensities as $element => $partialDensity) {
+        foreach ($weightFractions as $element => $weightFraction) {
             $ele = Element::where('symbol' , $element)->first();
             if($ele){
                 
                 //(∑R/P)i   = ∑wi∑R/P
-               $elementMassRemovalCrossSection = ($ele->neutronParams->mass_removal_xcs) * $weightFractions[$element];
+               $elementMassRemovalCrossSection = ($ele->neutronParams->mass_removal_xcs);
 
-               // ∑R = partialDensity *  ∑R/P
-               $effectiveMassRemovalCrossSection =  ( $partialDensity * ($elementMassRemovalCrossSection) );
+               // ∑R = weightFraction * $density *  ∑R/P
+               $effectiveMassRemovalCrossSection =  ( $weightFraction * $density * ($elementMassRemovalCrossSection) );
             }
            array_push($massRemovalCrossSections,  
                 [

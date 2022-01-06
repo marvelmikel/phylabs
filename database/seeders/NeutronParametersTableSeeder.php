@@ -29,7 +29,7 @@ class NeutronParametersTableSeeder extends Seeder
 
         */
 
-        // Elements with atomic mass less than  8
+        // Elements with atomic number less than  8
         $elements = Element::where('atomic_number',  '<=', 8)->get(['symbol', 'atomic_number', 'density']);
         foreach ($elements as $key => $element) {
             if($element->atomic_number == 1){
