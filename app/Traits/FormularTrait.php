@@ -25,6 +25,7 @@ class FormularTrait
            preg_match_all($regex1, $group, $composition[],  PREG_PATTERN_ORDER, 0);
         }
 
+       
         return ( array_merge(...$composition) );
                     
     }
@@ -36,7 +37,7 @@ class FormularTrait
         foreach ($composition as  $value) {
            $element = Element::where('symbol', $value[0] )->first();
            if(array_key_exists(1, $value)){
-            $mass =  $element->atomic_mass * ($value[1]) ;
+            	$mass =  $element->atomic_mass * ($value[1]) ;
            }else{
                 $mass =  $element->atomic_mass ;
            }

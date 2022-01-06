@@ -47,7 +47,15 @@ class NeutronXCSController extends Controller
 
         $massRemovalCrossSections = $this->calcRemovalCrossSection($weightFractions);
 
-        dd($massRemovalCrossSections);
+        dd(
+            [ $formular, 'title' => 'formular'],
+            [ $composition, 'title' => 'composition'],
+            [ $massCompositions, 'title' => 'massCompositions'],
+            [ $molarMass, 'title' => 'molarMass'],
+            [ $weightFractions, 'title' => 'weightFractions'],
+            [ $partialDensities, 'title' => 'partialDensities'],
+            [ $massRemovalCrossSections, 'title' => 'massRemovalCrossSections']
+        );
     }
 
     
