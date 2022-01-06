@@ -48,7 +48,7 @@ class NeutronXCSController extends Controller
 
         $partialDensities = $this->calcPartialDensity($weightFractions, $density);
 
-        $massRemovalCrossSections = $this->calcRemovalCrossSection($weightFractions, $density);
+        $massRemovalCrossSections = $this->calcRemovalCrossSection($partialDensities, $density);
 
         dd(
             [ 'title' => 'formular', $formular],
@@ -57,23 +57,22 @@ class NeutronXCSController extends Controller
             [ 'title' => 'massCompositions', $massCompositions],
             [ 'title' => 'molarMass', $molarMass],
             [ 'title' => 'weightFractions', $weightFractions],
-            [ 'title' => 'partialDensities', $partialDensities],
-            [ 'title' => 'massRemovalCrossSections', $massRemovalCrossSections]
+            [ 'title' => 'partialDensities',  'description' => 'weightfraction of element * density of substance ', $partialDensities],
+            [ 'title' => 'massRemovalCrossSections', 'description' => 'partialDensity of element * elements MassRemovalCrossSection', $massRemovalCrossSections]
         );
     }
 
     
 
-    public function calcRemovalCrossSection($weightFractions, $density)
+    public function calcRemovalCrossSection($partialDensities, $density)
     {
-        // = wi (∑R)I   
 
         $massRemovalCrossSections = [];
-        foreach ($weightFractions as $element => $weightFraction) {
+        foreach ($partialDensities as $element => $partialDensity) {
             $ele = Element::where('symbol' , $element)->first();
             if($ele){
                $elementMassRemovalCrossSection = $ele->neutronParams->mass_removal_xcs;
-               $effectiveMassRemovalCrossSection =  ( $weightFraction * ($elementMassRemovalCrossSection) );
+               $effectiveMassRemovalCrossSection =  ( $partialDensity * ($elementMassRemovalCrossSection) );
             }
            array_push($massRemovalCrossSections,  
                 [
