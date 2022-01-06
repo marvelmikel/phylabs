@@ -73,7 +73,7 @@ class NeutronXCSController extends Controller
             $ele = Element::where('symbol' , $element)->first();
             if($ele){
                $elementMassRemovalCrossSection = $ele->neutronParams->mass_removal_xcs;
-               $effectiveMassRemovalCrossSection = $density * ( $weightFraction * ($elementMassRemovalCrossSection) );
+               $effectiveMassRemovalCrossSection =  ( $weightFraction * ($elementMassRemovalCrossSection) );
             }
            array_push($massRemovalCrossSections,  
                 [
