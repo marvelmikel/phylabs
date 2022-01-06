@@ -41,7 +41,7 @@ class FormularTrait
                 $mass =  $element->atomic_mass ;
            }
             
-            array_push($massCompositions, [$value[0] => $mass, 'total' => ($mass+=$mass) ]);
+            array_push($massCompositions, [$value[0] => $mass ]);
         }
         return array_merge(...$massCompositions);
 
@@ -50,6 +50,7 @@ class FormularTrait
 
     public static function molarMass ($composition)
     {
+        $total = 0;
         foreach ($composition as  $value) {
            $element = Element::where('symbol', $value[0] )->first();
 
@@ -60,17 +61,17 @@ class FormularTrait
                 $mass =  $element->atomic_mass ;
             }
             // add up mass compositions
-            $mass+=$mass;
+            $total+=$mass;
         }
-        return $mass;
+        return $total;
     }
 
 
-    public static function weightFraction($massCompositions)
+    public static function weightFraction($massCompositions, $molarMass)
     {
         $weightFractions = [];
         foreach ($massCompositions as $element => $massComposition) {
-           array_push($weightFractions,  [$element => ($massComposition/$massCompositions['total']) ] );
+           array_push($weightFractions,  [$element => ($massComposition/$molarMass) ] );
         }
 
        return array_merge(...$weightFractions);

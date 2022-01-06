@@ -33,36 +33,47 @@ class NeutronXCSController extends Controller
    
     public function calcFastNeutronxcs(Request $request)
     {
-        $composition = FormularTrait::parseFormular('NaOH+H2O+Cl2');
+        $formular= $request->formular;
+        $composition = FormularTrait::parseFormular($formular);
         
-        $massCompositions = FormularTrait::massComposition($composition);
+        $massCompositions = FormularTrait::massComposition($composition); //corect
 
-        $weightFractions = FormularTrait::weightFraction($massCompositions);
+        $molarMass = FormularTrait::molarMass($composition); //corect
+
+        $weightFractions = FormularTrait::weightFraction($massCompositions, $molarMass); //corect
         
-        $molarMass = FormularTrait::molarMass($composition);
 
         $partialDensities = $this->calcPartialDensity($weightFractions);
 
-        $this->calcRemovalCrossSection($partialDensities);
+        $massRemovalCrossSections = $this->calcRemovalCrossSection($weightFractions);
+
+        dd($massRemovalCrossSections);
     }
 
     
 
-    public function calcRemovalCrossSection($partialDensities)
+    public function calcRemovalCrossSection($weightFractions, $density = 1)
     {
-        $removalCrossSections = [];
-        foreach ($partialDensities as $element => $partialDensity) {
+        // = wi (∑R)I   
+
+        $massRemovalCrossSections = [];
+        foreach ($weightFractions as $element => $weightFraction) {
             $ele = Element::where('symbol' , $element)->first();
             if($ele){
-                dd($ele);
+               $elementMassRemovalCrossSection = $ele->neutronParams->mass_removal_xcs;
+               $effectiveMassRemovalCrossSection = $density * ( $weightFraction * ($elementMassRemovalCrossSection) );
             }
-           // array_push($removalCrossSections,  [$element => ($value/$massCompositions['total']) ] );
+           array_push($massRemovalCrossSections,  
+                [
+                    $element => $effectiveMassRemovalCrossSection
+                ] );
         }
 
-        // dd(array_merge(...$weightFractions));
+
+        return (array_merge(...$massRemovalCrossSections));
     }
 
-    public static function calcPartialDensity($weightFractions, $density = 3.6)
+    public static function calcPartialDensity($weightFractions, $density = 1)
     {
         $calcPartialDensities = [];
         foreach ($weightFractions as $element => $weightFraction) {

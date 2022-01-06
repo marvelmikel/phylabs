@@ -31,4 +31,8 @@ class Element extends Model
         'id'
     ];
 
+    public function neutronParams(){
+        return $this->hasOne(\App\Models\NeutronParameter::class, 'element', 'symbol');
+    }
+
 }
